@@ -14,12 +14,12 @@ spring:
   cloud:
     gateway:
       routes:
-        # If a client requests http://first-service/**, the request actually goes to http://localhost:8081/first-service/**
+        # If a client requests http://localhost:8000/first-service/**, the request actually goes to http://localhost:8081/first-service/**
         - id: first-service
           uri: http://localhost:8081/
           predicates: # Similar to 'if'
             - Path=/first-service/**
-        # If a client requests http://second-service/**, the request actually goes to http://localhost:8082/second-service/**
+        # If a client requests http://localhost:8000/second-service/**, the request actually goes to http://localhost:8082/second-service/**
         - id: second-service
           uri: http://localhost:8082/
           predicates:

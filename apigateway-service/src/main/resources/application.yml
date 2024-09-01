@@ -14,6 +14,13 @@ spring:
     # Below content is available at code level too (FilterConfig)
   cloud:
     gateway:
+      # With GlobalFilter class
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: Spring Cloud Gateway Global Filter
+            preLogger: true
+            postLogger: true
       routes:
         # If a client requests http://localhost:8000/first-service/**, the request actually goes to http://localhost:8081/first-service/**
         - id: first-service

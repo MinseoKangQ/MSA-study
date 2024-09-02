@@ -10,9 +10,12 @@ spring:
 eureka:
   instance:
     # ex) 192.168.0.13:67e8809c6d498525fead6b2eb18141e3
-    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka # Register this service(user-service) to Eureka server(discovery-service)
+
+greeting:
+  message: Welcome to the simple E-commerce.

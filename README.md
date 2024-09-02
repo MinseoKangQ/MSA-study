@@ -31,9 +31,9 @@
     <td><b>🛠 Microservices</b></td>
     <td>사용자, 주문, 카탈로그 서비스 관리</td>
     <td>
-      <b>USER-SERVICE</b>: 사용자 관리와 관련된 기능을 담당하는 마이크로서비스<br>
-      <b>ORDER-SERVICE</b>: 주문 관리와 관련된 기능을 담당하는 마이크로서비스<br>
-      <b>CATALOG-SERVICE</b>: 상품 카탈로그와 관련된 기능을 담당하는 마이크로서비스
+      <b>USER-SERVICE</b>: 사용자 관리와 관련된 기능을 담당<br>
+      <b>ORDER-SERVICE</b>: 주문 관리와 관련된 기능을 담당<br>
+      <b>CATALOG-SERVICE</b>: 상품 카탈로그와 관련된 기능을 담당
     </td>
   </tr>
   <tr>
@@ -57,13 +57,13 @@
 <br>
 
 ### ✏️ discovery-service
-- http://localhost:8761
+- Port : 8761
 - Dependencies : Spring Cloud Discovery의 Eureka Server
 
 <br>
 
 ### ✏️ user-service
-- http://localhost:? (Using random port)
+- Port : Random
 - Dependencies
 	- Spring Cloud Discovery의 Eureka Discovery Client
  	- Spring Boot DevTools
@@ -73,8 +73,8 @@
 <br>
 
 ### ✏️ first-service, second-service
-- first-service : http://localhost:8081
-- second-service : http://localhost:8082
+- first-service port : 8081
+- second-service port : 8082
 - Dependencies
 	- Lombok
 	- Spring Web
@@ -83,10 +83,10 @@
 <br>
 
 ### ✏️ apigateway-service
-- http://localhost:8000
+- Port : 8000
 - Dependencies
   - Lombok
-	- DevTools
-	- Eureka Discovery Client
-	- Spring Cloud Routing의 Gateway
+  - DevTools
+  - Eureka Discovery Client
+  - Spring Cloud Routing의 Gateway
   - netty 관련 의존성 (MacOS M1 오류 해결 목적)

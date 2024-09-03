@@ -21,6 +21,7 @@ public class WebSecurity {
         http
             .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(authz -> authz
+                    .requestMatchers(new AntPathRequestMatcher("/user-service/**")).permitAll()
                     .requestMatchers(new AntPathRequestMatcher("/users/**")).permitAll()
             )
             .headers(headers -> headers.frameOptions(FrameOptionsConfig::disable)); // To access H2 Console

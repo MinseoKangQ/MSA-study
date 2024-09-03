@@ -5,6 +5,7 @@ import com.example.userservice.service.UserService;
 import com.example.userservice.vo.Greeting;
 import com.example.userservice.vo.RequestUser;
 import com.example.userservice.vo.ResponseUser;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -30,12 +31,13 @@ public class UserController {
     // 2)
     private final Greeting greeting;
 
-    @GetMapping("/health_check")
-    public String status() {
-        return "It's working in user service.";
+    @GetMapping("/user-service/health_check")
+    public String status(HttpServletRequest request) {
+        System.out.println("URI : " + request.getRequestURI());
+        return String.format("It's working in user service on PORT %s", request.getServerPort());
     }
 
-    @GetMapping("/welcome")
+    @GetMapping("/user-service/welcome")
     public String welcome() {
         // 1)
         // return env.getProperty("greeting.message");

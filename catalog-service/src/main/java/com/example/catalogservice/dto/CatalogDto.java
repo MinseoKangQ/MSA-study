@@ -1,5 +1,6 @@
 package com.example.catalogservice.dto;
 
+import java.io.Serializable;
 import lombok.Data;
 
 @Data

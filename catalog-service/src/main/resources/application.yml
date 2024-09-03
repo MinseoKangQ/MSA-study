@@ -18,13 +18,16 @@ spring:
     password:
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
+    show-sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
-    show-sql: true
     generate-ddl: true
     defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
 
 eureka:
   instance:

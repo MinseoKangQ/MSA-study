@@ -21,6 +21,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
         try {
             RequestLogin creds = new ObjectMapper().readValue(request.getInputStream(), RequestLogin.class);
+            System.out.println("로그인 시도 - 이메일: " + creds.getEmail());  // 디버깅 로그 추가
 
             // Change creds information to UsernamePasswordAuthenticationToken (Using spring security)
             return getAuthenticationManager().authenticate(
@@ -40,6 +41,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
                                             Authentication authResult) throws IOException, ServletException {
         super.successfulAuthentication(request, response, chain, authResult);
+        System.out.println("성공임");
         // Making token, setting token expiration date .. etc
     }
 }

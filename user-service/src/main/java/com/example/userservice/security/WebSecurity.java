@@ -4,6 +4,7 @@ import com.example.userservice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -21,6 +22,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @RequiredArgsConstructor
 public class WebSecurity {
 
+    private final Environment env;
     private final UserService userService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -56,17 +58,12 @@ public class WebSecurity {
     }
 
     private AuthenticationFilter getAuthenticationFilter(AuthenticationManager authenticationManager) throws Exception {
-        AuthenticationFilter authenticationFilter = new AuthenticationFilter();
-        authenticationFilter.setAuthenticationManager(authenticationManager);
+        AuthenticationFilter authenticationFilter = new AuthenticationFilter(
+                authenticationManager,
+                env,
+                userService);
         return authenticationFilter;
     }
-//
-//    private AuthorizationDecision hasIpAddress(Supplier<Authentication> authentication, RequestAuthorizationContext context) {
-//        HttpServletRequest request = context.getRequest();
-//        String clientIp = request.getRemoteAddr();
-//        System.out.println("Client IP: " + clientIp); // 실제 클라이언트 IP 확인
-//        return new AuthorizationDecision(MY_IP_ADDRESS.equals(clientIp));
-//    }
 
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {

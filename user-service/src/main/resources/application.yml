@@ -6,6 +6,9 @@ server:
 spring:
   application:
     name: user-service
+  config:
+    import:
+      - classpath:/bootstrap.yml
   h2:
     console:
       enabled: true
@@ -35,6 +38,9 @@ eureka:
 greeting:
   message: Welcome to the simple E-commerce.
 
-#token:
-#  expiration_time: 86400000 # 1 day
-#  secret: mySuperSecretKeyThatIsAtLeast64BytesLongAndVeryVerySecureKeyForHS512
+# If config-service changes, this application need not to restart
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans

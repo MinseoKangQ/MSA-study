@@ -46,6 +46,8 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - PreserveHostHeader
+            - AuthorizationHeaderFilter # Except for signup, login
         - id: catalog-service
           uri: lb://CATALOG-SERVICE
           predicates:
@@ -54,3 +56,6 @@ spring:
           uri: lb://ORDER-SERVICE
           predicates:
             - Path=/order-service/**
+
+token:
+  secret: mySuperSecretKeyThatIsAtLeast64BytesLongAndVeryVerySecureKeyForHS512

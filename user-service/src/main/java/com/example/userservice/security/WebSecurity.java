@@ -44,7 +44,7 @@ public class WebSecurity {
                                 .requestMatchers(new AntPathRequestMatcher("/welcome")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/health_check")).permitAll()
                                 .requestMatchers("/**").access(
-                                        new WebExpressionAuthorizationManager("hasIpAddress('127.0.0.1') or hasIpAddress('192.168.0.13')")
+                                new WebExpressionAuthorizationManager("hasIpAddress('127.0.0.1') or hasIpAddress('192.168.0.13') or hasIpAddress('localhost')")
                                 )
                                 .anyRequest().authenticated()
                 )

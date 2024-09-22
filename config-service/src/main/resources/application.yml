@@ -8,4 +8,5 @@ spring:
     config:
       server:
         git:
+          default-label: main
           uri: file:///Users/kangminseo/Documents/GitHub_Project/git-local-repo

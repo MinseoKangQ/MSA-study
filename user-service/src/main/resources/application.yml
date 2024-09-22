@@ -35,6 +35,6 @@ eureka:
 greeting:
   message: Welcome to the simple E-commerce.
 
-token:
-  expiration_time: 86400000 # 1 day
-  secret: mySuperSecretKeyThatIsAtLeast64BytesLongAndVeryVerySecureKeyForHS512
+#token:
+#  expiration_time: 86400000 # 1 day
+#  secret: mySuperSecretKeyThatIsAtLeast64BytesLongAndVeryVerySecureKeyForHS512

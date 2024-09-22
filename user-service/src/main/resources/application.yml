@@ -13,7 +13,6 @@ spring:
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:tcp://localhost/~/user_service_db # H2 must have a database named "user_service_db"
-#    url: jdbc:h2:mem:user_service_db
     username: sa
     password:
   jpa:

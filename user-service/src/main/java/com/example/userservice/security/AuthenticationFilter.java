@@ -5,7 +5,6 @@ import com.example.userservice.service.UserService;
 import com.example.userservice.vo.RequestLogin;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -16,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -68,7 +66,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
         // Set the claims
         Map<String, Object> claims = new HashMap<>();
-        claims.put("sub", userDetails.getUserId());  // user UUID
+        claims.put("sub", userDetails.getUserId()); // user UUID
         claims.put("exp", new Date(System.currentTimeMillis() + Long.parseLong(env.getProperty("token.expiration_time"))));  // expiration
 
         // Create the token

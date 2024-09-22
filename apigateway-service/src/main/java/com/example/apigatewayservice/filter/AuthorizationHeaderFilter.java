@@ -1,19 +1,12 @@
 package com.example.apigatewayservice.filter;
 
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Header;
 import io.jsonwebtoken.Jws;
-import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import java.security.Key;
-import java.util.Base64;
 import java.util.Objects;
 import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -69,17 +62,14 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
         String subject = null;
 
         try {
-            // JwtParser 빌더 생성
-            JwtParser jwtParser = Jwts.parser()  // parser() 사용
-                    .verifyWith(signingKey)      // verifyWith() 사용
-                    .build();                    // build() 호출
+            JwtParser jwtParser = Jwts.parser()
+                    .verifyWith(signingKey)
+                    .build();
 
-            // JWT를 파싱하고 Jws<Claims> 객체를 반환
-            Jws<Claims> claimsJws = jwtParser.parseClaimsJws(jwt);  // parseClaimsJws() 사용
-            Claims claims = claimsJws.getPayload();  // getBody() 대신 getPayload() 사용
+            Jws<Claims> claimsJws = jwtParser.parseClaimsJws(jwt);
+            Claims claims = claimsJws.getPayload();
 
-            subject = claims.getSubject();  // subject 추출
-            System.out.println("subject : " + subject);
+            subject = claims.getSubject();  // subject 추출 - userId (UUID)
         } catch (Exception ex) {
             returnValue = false;
         }

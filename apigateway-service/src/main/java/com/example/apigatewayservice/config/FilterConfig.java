@@ -2,13 +2,9 @@ package com.example.apigatewayservice.config;
 
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-//@Configuration
 public class FilterConfig {
 
-//    @Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
                 // If a client requests http://localhost:8000/first-service/**, the request actually goes to http://localhost:8081/first-service/**

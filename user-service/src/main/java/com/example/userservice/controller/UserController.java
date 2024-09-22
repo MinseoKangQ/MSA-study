@@ -28,11 +28,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private final UserService userService;
-
-    // 1)
-    // private final Environment env;
-
-    // 2)
     private final Greeting greeting;
 
     @GetMapping("/health_check")
@@ -43,10 +38,6 @@ public class UserController {
 
     @GetMapping("/welcome")
     public String welcome() {
-        // 1)
-        // return env.getProperty("greeting.message");
-
-        // 2)
         return greeting.getMessage();
     }
 

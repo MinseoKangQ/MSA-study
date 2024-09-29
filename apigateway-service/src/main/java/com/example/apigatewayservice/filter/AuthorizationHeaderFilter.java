@@ -5,6 +5,7 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import javax.crypto.SecretKey;
 import lombok.extern.slf4j.Slf4j;
@@ -56,7 +57,9 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
     private boolean isJwtValid(String jwt) {
         System.out.println("jwt value : " + jwt);
         String secretKey = env.getProperty("token.secret");
-        SecretKey signingKey = Keys.hmacShaKeyFor(Objects.requireNonNull(secretKey).getBytes());
+
+        // UTF-8 형식으로 변환된 바이트 배열 생성
+        SecretKey signingKey = Keys.hmacShaKeyFor(Objects.requireNonNull(secretKey).getBytes(StandardCharsets.UTF_8));
 
         boolean returnValue = true;
         String subject = null;
@@ -69,7 +72,7 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
             Jws<Claims> claimsJws = jwtParser.parseClaimsJws(jwt);
             Claims claims = claimsJws.getPayload();
 
-            subject = claims.getSubject();  // subject 추출 - userId (UUID)
+            subject = claims.getSubject(); // subject 추출 - userId (UUID)
         } catch (Exception ex) {
             returnValue = false;
         }

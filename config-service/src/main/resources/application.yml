@@ -9,4 +9,7 @@ spring:
       server:
         git:
           default-label: main
-          uri: file:///Users/kangminseo/Documents/GitHub_Project/git-local-repo
+          uri: https://github.com/MinseoKangQ/spring-cloud-config
+#          username: [your username]
+#          password: [your password]
+#          uri: file:///Users/kangminseo/Documents/GitHub_Project/git-local-repo

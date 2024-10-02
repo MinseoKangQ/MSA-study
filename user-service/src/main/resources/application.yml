@@ -18,11 +18,11 @@ spring:
     console:
       enabled: true
       path: /h2-console
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:tcp://localhost/~/user_service_db # H2 must have a database named "user_service_db"
-    username: sa
-    password:
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:tcp://localhost/~/user_service_db # H2 must have a database named "user_service_db"
+#    username: sa
+#    password:
   jpa:
     hibernate:
       ddl-auto: create

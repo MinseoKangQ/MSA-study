@@ -70,8 +70,8 @@ spring:
           predicates:
             - Path=/order-service/**
 
-token:
-  secret: mySuperSecretKeyThatIsAtLeast64BytesLongAndVeryVerySecureKeyForHS512
+#token:
+#  secret: mySuperSecretKeyThatIsAtLeast64BytesLongAndVeryVerySecureKeyForHS512
 
 management:
   endpoints:

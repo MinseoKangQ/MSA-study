@@ -1,0 +1,6 @@
+encrypt:
+#  key: abcdefghijklmnopqrstuvwxyz0123456789 # 대칭키에 사용되는 값
+  key-store:
+    location: file://${user.home}/Documents/GitHub_Project/keystore/apiEncryptionKey.jks
+    password: test1234
+    alias: apiEncryptionKey

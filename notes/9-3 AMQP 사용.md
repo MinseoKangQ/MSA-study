@@ -1,21 +1,18 @@
 # AMQP 사용
-
-<br><br>
-
 ### 1. Dependency 추가
 
 **Config Server**
 ```
-    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+implementation 'org.springframework.boot:spring-boot-starter-actuator'
+implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
 ```
 
 <br>
 
 **Users Microservice**, **Gateway Service**
 ```
-    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
 ```
 
 <br><br>

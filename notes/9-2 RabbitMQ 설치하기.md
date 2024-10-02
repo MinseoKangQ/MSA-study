@@ -1,7 +1,4 @@
-# RabbitMQ 설치하기
-- MacOS M1
-
-<br><br>
+# RabbitMQ 설치하기(MacOS M1)
 
 ### RabbitMQ 설치
 - `arch -arm64 brew update`

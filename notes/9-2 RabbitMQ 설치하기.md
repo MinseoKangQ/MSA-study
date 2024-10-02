@@ -1,16 +1,16 @@
-### RabbitMQ 설치하기
+# RabbitMQ 설치하기
 - MacOS M1
 
 <br><br>
 
-#### RabbitMQ 설치
+### RabbitMQ 설치
 - `arch -arm64 brew update`
 - `arch -arm64 brew upgrade`
 - `arch -arm64 brew install rabbitmq` 
 
 <br><br>
 
-#### 오류 발생 & 해결
+### 오류 발생 & 해결
 
 ```
 Error: Cannot install mariadb because conflicting formulae are installed.
@@ -30,7 +30,7 @@ resulting software.
 
 <br><br>
 
-#### 실행
+### 실행
 - `export PATH=$PATH:/usr/local/sbin`
 - `brew info rabbitmq` 로 RabbitMQ가 설치된 경로 찾기
 - `/opt/homebrew/opt/rabbitmq/sbin/rabbitmq-server` (설치된 경로)로 RabbitMQ 실행

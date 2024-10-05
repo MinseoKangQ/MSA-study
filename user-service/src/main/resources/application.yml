@@ -43,6 +43,10 @@ eureka:
 greeting:
   message: Welcome to the simple E-commerce.
 
+logging:
+  level:
+    com.example.userservice.client: DEBUG
+
 # If config-service changes, this application need not to restart
 management:
   endpoints:

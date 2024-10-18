@@ -1,4 +1,5 @@
 # AMQP 사용
+
 ### 1. Dependency 추가
 
 **Config Server**
@@ -17,7 +18,7 @@ implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
 
 <br><br>
 
-## 2. Config Server, Users Microservice, Gateway Service에 application.yml 수정
+### 2. Config Server, Users Microservice, Gateway Service에 application.yml 수정
 
 RabbitMQ와 각 서비스 간의 통신을 설정하고 Actuator의 엔드포인트를 노출하여 서비스 간의 구성 변경 사항을 자동으로 전달할 수 있다.
 
@@ -44,7 +45,7 @@ management:
 
 <br><br>
 
-## 3. 서비스 실행
+### 3. 서비스 실행
 
 1. RabbitMQ Server (`/opt/homebrew/opt/rabbitmq/sbin/rabbitmq-server`)
 
@@ -58,7 +59,7 @@ management:
 
 <br><br>
 
-## 4. 확인
+### 4. 확인
 
 1. `POST http://localhost:8000/actuator/busrefresh` 요청 보내기
    - 이 요청은 Spring Cloud Bus를 통해 변경 사항을 모든 마이크로서비스에 알린다.
